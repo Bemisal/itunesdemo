@@ -14,6 +14,8 @@
 		F6D1CC2E225FA2200075B891 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6D1CC2C225FA2200075B891 /* LaunchScreen.storyboard */; };
 		F6D1CC39225FA2200075B891 /* itunesdemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D1CC38225FA2200075B891 /* itunesdemoTests.swift */; };
 		F6D1CC44225FA2200075B891 /* itunesdemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D1CC43225FA2200075B891 /* itunesdemoUITests.swift */; };
+		F6D1CC52225FA9520075B891 /* noimage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F6D1CC51225FA9520075B891 /* noimage.jpeg */; };
+		F6D1CC54225FBDB80075B891 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D1CC53225FBDB80075B891 /* MyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		F6D1CC3F225FA2200075B891 /* itunesdemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itunesdemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D1CC43225FA2200075B891 /* itunesdemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itunesdemoUITests.swift; sourceTree = "<group>"; };
 		F6D1CC45225FA2200075B891 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6D1CC51225FA9520075B891 /* noimage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noimage.jpeg; sourceTree = "<group>"; };
+		F6D1CC53225FBDB80075B891 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,14 @@
 		F6D1CC22225FA21E0075B891 /* itunesdemo */ = {
 			isa = PBXGroup;
 			children = (
+				F6D1CC51225FA9520075B891 /* noimage.jpeg */,
 				F6D1CC23225FA21E0075B891 /* AppDelegate.swift */,
 				F6D1CC25225FA21E0075B891 /* ViewController.swift */,
 				F6D1CC27225FA21E0075B891 /* Main.storyboard */,
 				F6D1CC2A225FA2200075B891 /* Assets.xcassets */,
 				F6D1CC2C225FA2200075B891 /* LaunchScreen.storyboard */,
 				F6D1CC2F225FA2200075B891 /* Info.plist */,
+				F6D1CC53225FBDB80075B891 /* MyTableViewCell.swift */,
 			);
 			path = itunesdemo;
 			sourceTree = "<group>";
@@ -229,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6D1CC52225FA9520075B891 /* noimage.jpeg in Resources */,
 				F6D1CC2E225FA2200075B891 /* LaunchScreen.storyboard in Resources */,
 				F6D1CC2B225FA2200075B891 /* Assets.xcassets in Resources */,
 				F6D1CC29225FA21E0075B891 /* Main.storyboard in Resources */,
@@ -258,6 +265,7 @@
 			files = (
 				F6D1CC26225FA21E0075B891 /* ViewController.swift in Sources */,
 				F6D1CC24225FA21E0075B891 /* AppDelegate.swift in Sources */,
+				F6D1CC54225FBDB80075B891 /* MyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
