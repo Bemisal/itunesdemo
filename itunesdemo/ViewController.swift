@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var maintableview : UITableView = UITableView()
+    var session :URLSession = URLSession()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,37 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         maintableview.delegate=self
          self.view.addSubview(maintableview)
         maintableview.register(MyTableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        //json parsing
+        let session = URLSession.shared
+        let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/10/explicit.json")!
+        
+        let task = session.dataTask(with: url) { data, response, error in
+            
+            if error != nil || data == nil {
+                print("Client error!")
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+                print("Server error!")
+                return
+            }
+            
+            guard let mime = response.mimeType, mime == "application/json" else {
+                print("Wrong MIME type!")
+                return
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                print(json)
+            } catch {
+                print("JSON error: \(error.localizedDescription)")
+            }
+        }
+        
+        task.resume()
 
        
     }
@@ -50,6 +82,48 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
        // return 118
         return 122
     }
-
+    /*
+    //json parsing
+    //step 1 : Set up the HTTP request with URLSession
+   // let session = URLSession.shared
+    
+    let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/10/explicit.json")!
+    //step 2 : Make the request with URLSessionDataTask
+    let task = session.dataTask(with: url, completionHandler: { data, response, error in
+        
+        print(data)
+        print(response)
+        print(error)
+    })
+    task.resume()
+    
+    //let’s check if error is nil or not.
+    if error != nil {
+    // OH NO! An error occurred...
+    self.handleClientError(error)
+    return
+    }
+    //check if the HTTP status code is OK
+    guard let httpResponse = response as? HTTPURLResponse,
+    (200...299).contains(httpResponse.statusCode) else {
+    self.handleServerError(response)
+    return
+    }
+    //checks the so-called MIME type of the response
+    guard let mime = response.mimeType, mime == "application/json" else {
+    print("Wrong MIME type!")
+    return
+    }
+    //Convert the response data to JSON
+    do {
+    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+    print(json)
+    } catch {
+    print("JSON error: \(error.localizedDescription)")
+    }
+    
+    }
+    
+    */
 }
 
