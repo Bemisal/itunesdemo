@@ -8,71 +8,70 @@
 
 import UIKit
 
+
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var maintableview : UITableView = UITableView()
-    var session :URLSession = URLSession()
+    var names: [String] = []
+    var imagesurls :[String] = []
+    var mediaurls :[String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
         //setting maintableview
-      //  maintableview.frame = self.view.frame
-        let barheight : CGFloat = UIApplication.shared.statusBarFrame.size.height
+        maintableview.frame = self.view.frame
+      //  maintableview = UITableView (frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+     /*   let barheight : CGFloat = UIApplication.shared.statusBarFrame.size.height
         let displaywidth: CGFloat = self.view.frame.width
         let displayheight : CGFloat = self.view.frame.height
-        maintableview = UITableView(frame: CGRect(x: 0, y: 0, width: displaywidth, height: displayheight - barheight))
+        maintableview = UITableView(frame: CGRect(x: 0, y: 0, width: displaywidth, height: displayheight - barheight)) */
         maintableview.separatorColor = UIColor.clear
         maintableview.backgroundColor = UIColor.gray
         maintableview.dataSource=self
         maintableview.delegate=self
          self.view.addSubview(maintableview)
         maintableview.register(MyTableViewCell.self, forCellReuseIdentifier: "Cell")
-        
-        //json parsing
-        let session = URLSession.shared
-        let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/10/explicit.json")!
-        
-        let task = session.dataTask(with: url) { data, response, error in
-            
-            if error != nil || data == nil {
-                print("Client error!")
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
-                print("Server error!")
-                return
-            }
-            
-            guard let mime = response.mimeType, mime == "application/json" else {
-                print("Wrong MIME type!")
-                return
-            }
-            
+       //json parsing
+        let serviceurl = "https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/10/explicit.json"
+        guard let url = URL (string: serviceurl) else {return}
+        URLSession.shared.dataTask(with: url) {(data,response, err) in
+            guard let mydata = data else { return }
             do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                print(json)
-            } catch {
-                print("JSON error: \(error.localizedDescription)")
-            }
+                let resultJson = try JSONSerialization.jsonObject(with: mydata, options: []) as? NSDictionary
+               if let dictionary = resultJson as? [String: Any] {
+                   if let nestedDictionary = dictionary["feed"] as? NSDictionary
+                    {
+                    if let resultDictionary = nestedDictionary .object(forKey: "results") as? [[String: Any]]
+                {
+                     print(resultDictionary)
+                   
+                    for dic in resultDictionary{
+                        self.names.append(dic["name"] as! String)
+                        self.imagesurls.append(dic["artworkUrl100"] as! String)
+                    }}}
+                    }
+                self.maintableview.reloadData()
+                }
+        catch {
+            print ("error")
         }
-        
-        task.resume()
-
-       
+    }.resume()
     }
+   
     //uitableview datasource methods
     // func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     //  }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return names.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MyTableViewCell else {fatalError("error in cell creation")}
+        
         cell.myimage.image = UIImage(named: "noimage.jpeg")
-        cell.namelbl.text = "Pink"
+        //cell.namelbl.text = "Pink"
+        cell.namelbl.text = self.names[indexPath.row]
         cell.mediatypelbl.text = "Audio"
         return cell
     }
@@ -82,48 +81,5 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
        // return 118
         return 122
     }
-    /*
-    //json parsing
-    //step 1 : Set up the HTTP request with URLSession
-   // let session = URLSession.shared
-    
-    let url = URL(string: "https://rss.itunes.apple.com/api/v1/us/apple-music/coming-soon/all/10/explicit.json")!
-    //step 2 : Make the request with URLSessionDataTask
-    let task = session.dataTask(with: url, completionHandler: { data, response, error in
-        
-        print(data)
-        print(response)
-        print(error)
-    })
-    task.resume()
-    
-    //let’s check if error is nil or not.
-    if error != nil {
-    // OH NO! An error occurred...
-    self.handleClientError(error)
-    return
-    }
-    //check if the HTTP status code is OK
-    guard let httpResponse = response as? HTTPURLResponse,
-    (200...299).contains(httpResponse.statusCode) else {
-    self.handleServerError(response)
-    return
-    }
-    //checks the so-called MIME type of the response
-    guard let mime = response.mimeType, mime == "application/json" else {
-    print("Wrong MIME type!")
-    return
-    }
-    //Convert the response data to JSON
-    do {
-    let json = try JSONSerialization.jsonObject(with: data!, options: [])
-    print(json)
-    } catch {
-    print("JSON error: \(error.localizedDescription)")
-    }
-    
-    }
-    
-    */
 }
 

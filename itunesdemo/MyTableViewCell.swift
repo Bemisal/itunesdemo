@@ -12,6 +12,7 @@ class MyTableViewCell: UITableViewCell {
 
     lazy var backview:UIView = {
         let view  = UIView(frame: CGRect(x: 10, y: 6, width: self.frame.width-20, height: 110))
+      //  let view  = UIView(frame: CGRect(x: 10, y: 6, width: 375-20, height: 667))
         view.backgroundColor = UIColor.white
         return view
     }()
