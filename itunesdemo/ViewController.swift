@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -15,7 +15,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var names: [String] = []
     var imagesurls :[String] = []
     var mediaurls :[String] = []
-
+    var spinner :UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +53,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                         self.imagesurls.append(dic["artworkUrl100"] as! String)
                     }}}
                     }
-                self.maintableview.reloadData()
+                 self.maintableview.reloadData()
                 }
         catch {
             print ("error")
@@ -61,20 +62,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
    
     //uitableview datasource methods
-    // func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //  }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return names.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MyTableViewCell else {fatalError("error in cell creation")}
-        
-        cell.myimage.image = UIImage(named: "noimage.jpeg")
-        //cell.namelbl.text = "Pink"
+        //getting image from url
+        let link :String = self.imagesurls [indexPath.row]
+        cell.myimage.sd_setImage(with: URL(string:link), placeholderImage: UIImage(named: "noimage.jpeg"))
         cell.namelbl.text = self.names[indexPath.row]
-        cell.mediatypelbl.text = "Audio"
+        cell.mediatypelbl.text = "Apple Music"
         return cell
     }
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     }
     //uitableview delegate method
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
