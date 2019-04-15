@@ -16,11 +16,12 @@ class MyTableViewCell: UITableViewCell {
     var myMusicPlayer = MPMusicPlayerController.applicationMusicPlayer
     var userlibrary = MPMediaLibrary.init()
     let serviceController = SKCloudServiceController()
-    
+    //variable get get id for song
+    var strid : String = String ()
+   
     
     lazy var backview:UIView = {
         let view  = UIView(frame: CGRect(x: 10, y: 6, width: self.frame.width-20, height: 110))
-      //  let view  = UIView(frame: CGRect(x: 10, y: 6, width: 375-20, height: 667))
         view.backgroundColor = UIColor.white
         return view
     }()
@@ -49,8 +50,7 @@ class MyTableViewCell: UITableViewCell {
         playbutton.addTarget(self, action: #selector(pressed(sender:)), for: .touchUpInside)
         return playbutton
     }()
-    
-    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,7 +73,9 @@ class MyTableViewCell: UITableViewCell {
         backview.clipsToBounds = true
     }
     @objc func pressed(sender: UIButton!) {
-        serviceController.requestCapabilities { (capability:SKCloudServiceCapability, err:Error?) in
+         DispatchQueue(label: "parsing", qos: .userInitiated).async {
+        //SKCloudServiceController API to determine the current capabilities
+            self.serviceController.requestCapabilities { (capability:SKCloudServiceCapability, err:Error?) in
             guard err == nil else {
                 print("error in capability check is \(err!)")
                 return
@@ -94,13 +96,19 @@ class MyTableViewCell: UITableViewCell {
                 // Fallback on earlier versions
             }
         }
-        self.userlibrary.addItem(withProductID: "1458638381") { (entity, error) in
+        //adding a track to the library
+            self.userlibrary.addItem(withProductID: self.strid) { (entity, error) in
             if let error = error {
                 NSLog("Error: \(error.localizedDescription)")
             }
         }
-        myMusicPlayer.setQueue(with: ["1458638381"])
-        myMusicPlayer.prepareToPlay()
-        myMusicPlayer.play()
+        //playing a track
+            self.myMusicPlayer.setQueue(with: [self.strid])
+            self.myMusicPlayer.prepareToPlay()
+            self.myMusicPlayer.play()
+            DispatchQueue.main.async {
+                
+            }
+            }
     }
 }
