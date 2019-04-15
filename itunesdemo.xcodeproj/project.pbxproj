@@ -10,7 +10,7 @@
 		3D25639AACEB4BF9247CE2B2 /* Pods_itunesdemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8922037F8564765F71ED2BF3 /* Pods_itunesdemoUITests.framework */; };
 		982D68A5BE0D1E979F0E8ACC /* Pods_itunesdemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71631114475F160A5C751EC /* Pods_itunesdemo.framework */; };
 		C37C625012A84FA793833E83 /* Pods_itunesdemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB237C517556D8C71D76CF79 /* Pods_itunesdemoTests.framework */; };
-		F6B887502261372F004197B0 /* ModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B8874F2261372F004197B0 /* ModelClass.swift */; };
+		F6B03B1722649FDC006CC457 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B03B1622649FDC006CC457 /* MediaPlayer.framework */; };
 		F6D1CC24225FA21E0075B891 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D1CC23225FA21E0075B891 /* AppDelegate.swift */; };
 		F6D1CC26225FA21E0075B891 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D1CC25225FA21E0075B891 /* ViewController.swift */; };
 		F6D1CC29225FA21E0075B891 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6D1CC27225FA21E0075B891 /* Main.storyboard */; };
@@ -49,7 +49,7 @@
 		A3FD7AAC5D2EB30DA351ECFF /* Pods-itunesdemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunesdemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-itunesdemoUITests/Pods-itunesdemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D71631114475F160A5C751EC /* Pods_itunesdemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunesdemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB237C517556D8C71D76CF79 /* Pods_itunesdemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunesdemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6B8874F2261372F004197B0 /* ModelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelClass.swift; sourceTree = "<group>"; };
+		F6B03B1622649FDC006CC457 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F6D1CC20225FA21E0075B891 /* itunesdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itunesdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D1CC23225FA21E0075B891 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6D1CC25225FA21E0075B891 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B03B1722649FDC006CC457 /* MediaPlayer.framework in Frameworks */,
 				982D68A5BE0D1E979F0E8ACC /* Pods_itunesdemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,11 +107,13 @@
 				A3FD7AAC5D2EB30DA351ECFF /* Pods-itunesdemoUITests.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E2E595BAB1E71CCC1CB7D5A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6B03B1622649FDC006CC457 /* MediaPlayer.framework */,
 				D71631114475F160A5C751EC /* Pods_itunesdemo.framework */,
 				DB237C517556D8C71D76CF79 /* Pods_itunesdemoTests.framework */,
 				8922037F8564765F71ED2BF3 /* Pods_itunesdemoUITests.framework */,
@@ -125,7 +128,6 @@
 				F6D1CC37225FA2200075B891 /* itunesdemoTests */,
 				F6D1CC42225FA2200075B891 /* itunesdemoUITests */,
 				F6D1CC21225FA21E0075B891 /* Products */,
-				BEAB3437B4F0547335C2FE70 /* Pods */,
 				E2E595BAB1E71CCC1CB7D5A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -144,14 +146,14 @@
 			isa = PBXGroup;
 			children = (
 				F6D1CC51225FA9520075B891 /* noimage.jpeg */,
+				BEAB3437B4F0547335C2FE70 /* Pods */,
 				F6D1CC23225FA21E0075B891 /* AppDelegate.swift */,
 				F6D1CC25225FA21E0075B891 /* ViewController.swift */,
-				F6B8874F2261372F004197B0 /* ModelClass.swift */,
+				F6D1CC53225FBDB80075B891 /* MyTableViewCell.swift */,
 				F6D1CC27225FA21E0075B891 /* Main.storyboard */,
 				F6D1CC2A225FA2200075B891 /* Assets.xcassets */,
 				F6D1CC2C225FA2200075B891 /* LaunchScreen.storyboard */,
 				F6D1CC2F225FA2200075B891 /* Info.plist */,
-				F6D1CC53225FBDB80075B891 /* MyTableViewCell.swift */,
 			);
 			path = itunesdemo;
 			sourceTree = "<group>";
@@ -403,7 +405,6 @@
 			files = (
 				F6D1CC26225FA21E0075B891 /* ViewController.swift in Sources */,
 				F6D1CC24225FA21E0075B891 /* AppDelegate.swift in Sources */,
-				F6B887502261372F004197B0 /* ModelClass.swift in Sources */,
 				F6D1CC54225FBDB80075B891 /* MyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

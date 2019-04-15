@@ -2,4 +2,100 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "itunesdemo/ViewController.swift"
+            timestampString = "577019694.459931"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "itunesdemo.ViewController.mediaurls.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "itunesdemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codenterprise/Desktop/itunesdemo%203/itunesdemo/ViewController.swift"
+                  timestampString = "576842420.650562"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "itunesdemo.ViewController.mediaurls.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "itunesdemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codenterprise/Desktop/itunesdemo%203/itunesdemo/ViewController.swift"
+                  timestampString = "576842420.6539249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "itunesdemo.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; itunesdemo.ViewController"
+                  moduleName = "itunesdemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codenterprise/Desktop/itunesdemo%203/itunesdemo/ViewController.swift"
+                  timestampString = "576842420.658098"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "510">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "itunesdemo.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;itunesdemo.ViewController&gt;"
+                  moduleName = "itunesdemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codenterprise/Desktop/itunesdemo%203/itunesdemo/ViewController.swift"
+                  timestampString = "576842420.6618969"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "488">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "itunesdemo/MediaPlayerViewController.swift"
+            timestampString = "577019694.460144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "pressed(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
